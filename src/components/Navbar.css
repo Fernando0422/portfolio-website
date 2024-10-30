@@ -1,0 +1,130 @@
+/* src/components/Navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #000; /* Restored black background */
+  height: 80px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header-logo {
+  width: 50px;
+  height: auto;
+}
+
+.menu-icon {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 24px;
+  width: 30px;
+  z-index: 1001;
+}
+
+.menu-line {
+  width: 100%;
+  height: 3px;
+  background-color: white; /* Changed back to white for visibility on black navbar */
+  border-radius: 2px;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  justify-content: flex-end;
+  padding: 80px;
+  z-index: 1000;
+}
+
+/* Hide hamburger menu when menu is open */
+.menu-open .menu-icon {
+  display: none;
+}
+
+.close-icon {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1002;
+  font-family: 'Inter', sans-serif;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  text-align: right;
+  margin: 0;
+  margin-top: 60px;
+}
+
+.menu ul li {
+  margin: 20px 0;
+  font-size: 6rem;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.menu ul li.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: inherit;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.menu ul li a:hover {
+  color: #777;
+}
+
+.menu ul li.active a {
+  color: #777;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .menu ul li {
+    font-size: 4rem;
+  }
+
+  .menu {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu ul li {
+    font-size: 3rem;
+  }
+}
